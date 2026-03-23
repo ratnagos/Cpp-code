@@ -1,0 +1,47 @@
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+class InvalidAgeException : public exception
+{
+public:
+    int age;
+
+    InvalidAgeException(int a)
+    {
+        age = a;
+    }
+
+    const char* what() const noexcept override
+    {
+        return "Invalid Age Entered:";
+    }
+
+    int getAge() const
+    {
+        return age;
+    }
+};
+
+void setAge(int age)
+{
+    if (age < 0 || age > 120)
+    {
+        throw InvalidAgeException(age);
+    }
+}
+
+int main()
+{
+    try
+    {
+        setAge(-1);
+    }
+    catch (const InvalidAgeException &e)
+    {
+        cerr << "Caught Exception: " << e.what()
+             << " Age: " << e.getAge();
+    }
+
+    return 0;
+}
