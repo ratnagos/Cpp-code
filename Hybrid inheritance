@@ -1,0 +1,44 @@
+#include<iostream.h>
+#include<conio.h>
+class abc 
+{
+         public:
+          void car()
+         {
+            cout<<"This is a car method";
+         }
+};
+ class ghi: public abc 
+{
+         public:
+         void truck()
+        {
+           cout<<"This is a truck method";
+        }
+};
+class derived_class: public abc 
+{
+         public:
+         void d_class()
+        {
+           cout<<"This is a Derived Class Method";
+        }
+};
+class mno: public ghi,public derived_class
+{
+         public:
+          void bike()
+         { 
+           cout<<"This is a bike method";
+         }
+};
+void main()
+{ 
+     clrcsr();
+     mno obj; 
+     obj.ghi::car();
+     obj.car();
+     obj.truck();
+     obj.d_class();
+     getch();
+}
