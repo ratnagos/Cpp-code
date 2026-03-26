@@ -1,0 +1,33 @@
+#include<iostream.h>
+#include<conio.h>
+
+class Parent
+{
+public:
+    int money;
+
+    void getMoney()
+    {
+        cout<<"Enter parent's money: ";
+        cin>>money;
+    }
+};
+
+class Child : public Parent
+{
+public:
+    void show()
+    {
+        cout<<"Child inherited money = "<<money;
+    }
+};
+void main()
+{
+    clrscr();
+
+    Child c;
+    c.getMoney();
+    c.show();
+
+    getch();
+}
