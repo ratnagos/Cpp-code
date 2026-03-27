@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1, num2;
+
+    // Input two numbers
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+
+    // Check first number
+    if(num1 % 2 == 0)
+        cout << num1 << " is Even" << endl;
+    else
+        cout << num1 << " is Odd" << endl;
+
+    // Check second number
+    if(num2 % 2 == 0)
+        cout << num2 << " is Even" << endl;
+    else
+        cout << num2 << " is Odd" << endl;
+
+    return 0;
+}
