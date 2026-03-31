@@ -1,0 +1,44 @@
+#include <iostream.h>
+#include <conio.h>
+#include <stdexcept>
+
+class InvalidAgeException : public exception
+{
+    int age;
+
+public:
+    InvalidAgeException(int a)
+    {
+        age = a;
+    }
+
+    const char* what() const noexcept override
+    {
+        return "Invalid Age Entered";
+    }
+
+    int getAge() const
+    {
+        return age;
+    }
+};
+
+void setAge(int age)
+{
+    if (age < 0 || age > 120)
+    {
+        throw InvalidAgeException(age);
+    }
+
+    cout << "Age set to: " << age;
+}
+
+void main()
+{
+    clrscr();
+
+    try
+    {
+        setAge(-1);
+    }
+}
